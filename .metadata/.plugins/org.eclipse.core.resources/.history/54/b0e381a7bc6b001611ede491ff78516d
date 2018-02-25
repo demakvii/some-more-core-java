@@ -1,0 +1,89 @@
+package com.techlabs.employee;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Employee {
+	private int id;
+	static int spaces = 0;
+	private String fName;
+	private String lName;
+	private int managerId;
+	private List<Employee> reportees;
+
+	public Employee(int id, String fName, String lName, int managerId) {
+		this.id = id;
+		this.fName = fName;
+		this.lName = lName;
+
+		this.managerId = managerId;
+
+		reportees = new ArrayList<Employee>();
+	}
+
+	public List<Employee> getReportees() {
+		return reportees;
+	}
+
+	public void setReportees(Employee emp) {
+		this.reportees.add(emp);
+	}
+
+	public String getfName() {
+		return fName;
+	}
+
+	public void setfName(String fName) {
+		this.fName = fName;
+	}
+
+	public String getlName() {
+		return lName;
+	}
+
+	public void setlName(String lName) {
+		this.lName = lName;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return fName;
+	}
+
+	public void setName(String name) {
+		this.fName = name;
+	}
+
+	public int getManagerId() {
+		return managerId;
+	}
+
+	public void setManagerId(int reportId) {
+		this.managerId = reportId;
+	}
+
+	@Override
+	public String toString() {
+		return "" + fName + " " + lName;
+	}
+
+	public void display() {
+		System.out.println(" "+fName + " " + lName);
+		spaces = spaces + this.getfName().length() + this.getlName().length();
+		for (Employee employee : reportees) {
+
+			for (int index = 0; index < spaces; index++) {
+				System.out.print(" ");
+			}
+			employee.display();
+		}
+		spaces = spaces - this.getfName().length() - this.getlName().length();
+	}
+}

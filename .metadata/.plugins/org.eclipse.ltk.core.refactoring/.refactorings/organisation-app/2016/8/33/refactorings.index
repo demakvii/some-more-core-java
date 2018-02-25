@@ -1,0 +1,15 @@
+1470590247288	Rename field 'name'
+1470590284546	Rename field 'fname'
+1470590318499	Rename field 'lname'
+1470934117188	Rename field 'correspondId'
+1470934135993	Rename method 'getCorrespondId'
+1470934147133	Rename method 'setCorrespondId'
+1470934161477	Rename local variable 'correspondId'
+1470939545475	Delete element
+1471082418441	Rename field 'reportId'
+1471083166560	Delete element
+1471083210089	Copy compilation units
+1471083232746	Delete elements
+1471083245980	Move compilation units
+1471083275468	Move compilation unit
+1471083302948	Move compilation unit

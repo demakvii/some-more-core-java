@@ -1,0 +1,12 @@
+package com.techlabs.employee.test;
+
+import com.techlabs.employee.datareader.Datafile;
+import com.techlabs.employee.services.EmployeeServices;
+
+public class TestMain {
+	public static void main(String[] args) {
+		EmployeeServices services = new EmployeeServices("data.txt",
+				new Datafile());
+		System.out.println(services.getManager(1));
+	}
+}

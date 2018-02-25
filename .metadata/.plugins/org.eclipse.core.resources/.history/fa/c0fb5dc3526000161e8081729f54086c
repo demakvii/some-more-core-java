@@ -1,0 +1,79 @@
+package com.techlabs.employee;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Employee  {
+	private int id;
+	private String fName;
+	private String lName;
+	private int reportId;
+	private List<Integer> reportees;
+
+	public Employee(String fileName) {
+		this.id = Integer.parseInt(fileName.split(",")[0]);
+		this.fName = fileName.split(",")[1];
+		this.lName = fileName.split(",")[2];
+		
+		this.reportId = Integer.parseInt(fileName.split(",")[3]);
+		
+		reportees = new ArrayList<Integer>();
+	}
+
+	public List<Integer> getReportees() {
+		return reportees;
+	}
+
+	public void setReportees(int reporteeID) {
+		this.reportees.add(reporteeID);
+	}
+
+	public String getfName() {
+		return fName;
+	}
+
+	public void setfName(String fName) {
+		this.fName = fName;
+	}
+
+	public String getlName() {
+		return lName;
+	}
+
+	public void setlName(String lName) {
+		this.lName = lName;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return fName;
+	}
+
+	public void setName(String name) {
+		this.fName = name;
+	}
+
+	public int getReportId() {
+		return reportId;
+	}
+
+	public void setReportId(int reportId) {
+		this.reportId = reportId;
+	}
+	
+	@Override
+	public String toString() {
+		return "" + fName + " " + lName+" "+reportees;
+	}
+
+	public void display() {
+		System.out.println(fName+" "+lName);
+	}
+}

@@ -1,0 +1,76 @@
+package com.techlabs.employee;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class EmployeeDTO {
+	private List<Employee> list;
+
+	public EmployeeDTO(IDataFile dataFile, String filePath) {
+
+		list = dataFile.load(filePath);
+
+		for (Employee employee : list) {
+			if (employee.getReportId() != 0) {
+				Employee temp = getEmployeeById(employee.getReportId());
+
+				temp.setReportees(employee.getId());
+			}
+		}
+	}
+
+	public List<Employee> getList() {
+		return list;
+	}
+
+	public Employee getEmployeeById(int id) {
+		for (Employee employee : list) {
+			if (employee.getId() == id)
+				return employee;
+		}
+		return null;
+	}
+
+	@Override
+	public String toString() {
+		return list.toString();
+	}
+
+	public void display() {
+
+		List<Employee> sorted = new LinkedList<Employee>();
+		for (Employee employee : list) {
+			if (employee.getReportId() == 0) {
+				sorted.add(employee);
+				System.out.print(employee + "<-[");
+			}
+		}
+
+		for (Employee employee : list) {
+			if (!sorted.contains(employee)
+					&& !employee.getReportees().isEmpty()) {
+
+				sorted.add(employee);
+				System.out.print(employee);
+			}
+
+			List<Integer> reportees = employee.getReportees();
+			if (!reportees.isEmpty()) {
+				System.out.print("<-[");
+				for (int reportID : reportees) {
+					if (!sorted.contains(getEmployeeById(reportID))) {
+						sorted.add(getEmployeeById(reportID));
+						System.out.print(getEmployeeById(reportID));
+
+						System.out.print(",");
+					}
+
+				}
+				System.out.print("],");
+			}
+
+		}
+		System.out.print("]");
+
+	}
+}

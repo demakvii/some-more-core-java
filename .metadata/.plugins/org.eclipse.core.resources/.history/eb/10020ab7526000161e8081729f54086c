@@ -1,0 +1,17 @@
+package com.techlabs.employee;
+
+public class Organisation {
+	private EmployeeDTO empList;
+
+	public Organisation(String filePath, IDataFile dataFile) {
+		this.empList = new EmployeeDTO(dataFile, filePath);
+
+	}
+
+	public void display() {
+//empList.display();	
+System.out.println(empList.getEmployeeById(5));
+		}
+	
+	
+}
